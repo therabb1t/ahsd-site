@@ -23,6 +23,7 @@ header {
 }
 
 header h1 {
+    font-size:5em;
     color: black;
     font-family: 'psilograph';
 }
