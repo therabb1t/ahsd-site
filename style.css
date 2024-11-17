@@ -3,7 +3,14 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+@font-face{
+    font-family: 'psilograph';
+    src: url('./Psilograph-Black.ttf');
+}
+@font-face{
+    font-family: 'highway-gothic';
+    src: url('./HWYGCOND.ttf');
+}
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
@@ -17,6 +24,7 @@ header {
 
 header h1 {
     color: black;
+    font-family: 'psilograph';
 }
 
 nav ul {
@@ -49,6 +57,7 @@ main h2 {
     font-size: 1.5em;
     text-align: center;
     margin-bottom: 10px;
+    font-family: 'highway-gothic';
 }
 
 main p {
