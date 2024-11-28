@@ -1,0 +1,7 @@
+pip install --upgrade pip
+pip install flask
+pip install pygame
+
+python conexao.py
+http://127.0.0.1:5000/.
+subprocess.Popen --quizes separados 
