@@ -38,10 +38,26 @@ current_question = 0
 score = 0
 running = True
 
+def draw_text_wrapped(surface, text, font, color, x, y, max_width):
+    words = text.split(' ')
+    lines = []
+    current_line = words[0]
+
+    for word in words[1:]:
+        if font.size(current_line + ' ' + word)[0] <= max_width:
+            current_line += ' ' + word
+        else:
+            lines.append(current_line)
+            current_line = word
+    lines.append(current_line)
+
+    for i, line in enumerate(lines):
+        text_surface = font.render(line, True, color)
+        surface.blit(text_surface, (x, y + i * font.get_linesize()))
+
 def draw_question(question_data):
     screen.fill(WHITE)
-    question_text = font.render(question_data["question"], True, BLACK)
-    screen.blit(question_text, (WIDTH // 2 - question_text.get_width() // 2, 50))
+    draw_text_wrapped(screen, question_data["question"], font, BLACK, WIDTH // 2 - 350, 50, 700)
 
     for i, option in enumerate(question_data["options"]):
         option_text = font.render(f"{i + 1}. {option}", True, BLUE)
@@ -52,12 +68,12 @@ while running:
         if event.type == QUIT:
             running = False
         if event.type == KEYDOWN:
-            if event.key in [K_1, K_2, K_3, K_4]:  # Verifica se uma tecla válida foi pressionada
+            if event.key in [K_1, K_2, K_3, K_4]:  
                 selected_option = event.key - K_1
-                score += questions[current_question]["points"][selected_option]  # Adiciona a pontuação
+                score += questions[current_question]["points"][selected_option]  
                 current_question += 1
-                if current_question >= len(questions):  # Se não houver mais perguntas, encerra o quiz
-                    print(f"Pontuação final: {score}")  # Exibe a pontuação final no console
+                if current_question >= len(questions):  
+                    print(f"Pontuação final: {score}")  
                     running = False
 
     if current_question < len(questions):
