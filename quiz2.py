@@ -108,17 +108,17 @@ def get_resultado(score):
 def draw_final_message(score):
     screen.fill(WHITE)
     parecer = get_resultado(score)
+
     final_text = font.render("Quiz encerrado!", True, BLACK)
     screen.blit(final_text, (WIDTH // 2 - final_text.get_width() // 2, HEIGHT // 3))
-    
     parecer_text = font.render(f"Parecer: {parecer}", True, BLUE)
     screen.blit(parecer_text, (WIDTH // 2 - parecer_text.get_width() // 2, HEIGHT // 2))
-
-    if score > 300:
-        pesquisa_text1 = font.render("Você gostaria de contribuir para uma pesquisa em 2025?", True, BLACK)
-        pesquisa_text2 = font.render("Acesse o formulário: [INSIRA O LINK AQUI]", True, BLUE)
-        screen.blit(pesquisa_text1, (WIDTH // 2 - pesquisa_text1.get_width() // 2, HEIGHT // 2 + 50))
-        screen.blit(pesquisa_text2, (WIDTH // 2 - pesquisa_text2.get_width() // 2, HEIGHT // 2 + 100))
+    
+    if score > 300: 
+        pesquisa_text1 = "Você gostaria de contribuir para uma pesquisa em 2025?"
+        pesquisa_text2 = "Acesse o formulário: [INSIRA O LINK AQUI]"
+        draw_text_wrapped(screen, pesquisa_text1, font, BLACK, WIDTH // 2 - 350, HEIGHT // 2 + 50, 700)
+        draw_text_wrapped(screen, pesquisa_text2, font, BLUE, WIDTH // 2 - 350, HEIGHT // 2 + 50, 700)
 
 def draw_intro():
     screen.fill(WHITE)
@@ -154,7 +154,7 @@ while running:
                         if current_question >= len(questions):
                             state = "finished"
             elif state == "finished":
-                if event.key == K_ESCAPE: 
+                if event.key == K_ESCAPE:
                     running = False
 
     if state == "intro":

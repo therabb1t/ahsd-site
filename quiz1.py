@@ -120,31 +120,49 @@ def draw_final_message(score):
         draw_text_wrapped(screen, pesquisa_text1, font, BLACK, WIDTH // 2 - 350, HEIGHT // 2 + 50, 700)
         draw_text_wrapped(screen, pesquisa_text2, font, BLUE, WIDTH // 2 - 350, HEIGHT // 2 + 100, 700)
 
+def draw_intro():
+    screen.fill(WHITE)
+    title_font = pygame.font.Font(None, 48)
+    title_text = title_font.render("Bem-vindo ao Quiz de Inteligência!", True, BLACK)
+    instructions_text = font.render("Pressione SPACE para começar.", True, BLUE)
+    keys_info_text = font.render("Responda usando as teclas 1, 2, 3, 4 ou 5.", True, BLACK)
+    
+    screen.blit(title_text, (WIDTH // 2 - title_text.get_width() // 2, HEIGHT // 3))
+    screen.blit(instructions_text, (WIDTH // 2 - instructions_text.get_width() // 2, HEIGHT // 2))
+    screen.blit(keys_info_text, (WIDTH // 2 - keys_info_text.get_width() // 2, HEIGHT // 2 + 50))
 
 current_question = 0
 score = 0
 quiz_finished = False
 running = True
+state = "intro"  # Estados: 'intro', 'quiz', 'finished'
 
 while running:
     for event in pygame.event.get():
         if event.type == QUIT:
             running = False
         if event.type == KEYDOWN:
-            if not quiz_finished:
+            if state == "intro":
+                if event.key == K_SPACE:
+                    state = "quiz"
+            elif state == "quiz":
                 if event.key in [K_1, K_2, K_3, K_4, K_5]:
                     selected_option = event.key - K_1
-                    score += questions[current_question]["points"][selected_option]
-                    current_question += 1
-                    if current_question >= len(questions):
-                        quiz_finished = True
-            else:
-                if event.key == K_ESCAPE: 
+                    if 0 <= selected_option < len(questions[current_question]["points"]):
+                        score += questions[current_question]["points"][selected_option]
+                        current_question += 1
+                        if current_question >= len(questions):
+                            state = "finished"
+            elif state == "finished":
+                if event.key == K_ESCAPE:
                     running = False
 
-    if not quiz_finished:
-        draw_question(questions[current_question])
-    else:
+    if state == "intro":
+        draw_intro()
+    elif state == "quiz":
+        if current_question < len(questions):
+            draw_question(questions[current_question])
+    elif state == "finished":
         draw_final_message(score)
 
     pygame.display.flip()
