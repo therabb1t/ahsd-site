@@ -13,26 +13,22 @@ screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Quiz para Alunos (14-21)")
 
 questions = [
-    {"question": "1. Como você avalia a sua compreensão sobre o tema proposto?",
-     "options": ["Não sei", "Pouco", "Às vezes", "Frequentemente", "Sempre"], "points": [0, 10, 20, 30, 40]},
-    {"question": "2. Você costuma discutir este tema com seus colegas?",
-     "options": ["Não sei", "Pouco", "Às vezes", "Frequentemente", "Sempre"], "points": [0, 10, 20, 30, 40]},
-    {"question": "3. Você já leu algum material sobre o tema?",
-     "options": ["Não sei", "Pouco", "Às vezes", "Frequentemente", "Sempre"], "points": [0, 10, 20, 30, 40]},
-    {"question": "4. Como você descreveria sua participação em atividades relacionadas ao tema?",
-     "options": ["Não sei", "Pouco", "Às vezes", "Frequentemente", "Sempre"], "points": [0, 10, 20, 30, 40]},
-    {"question": "5. Você sente que suas ações têm impacto sobre esse tema?",
-     "options": ["Não sei", "Pouco", "Às vezes", "Frequentemente", "Sempre"], "points": [0, 10, 20, 30, 40]},
-    {"question": "6. Você já discutiu esse tema com professores ou outros especialistas?",
-     "options": ["Não sei", "Pouco", "Às vezes", "Frequentemente", "Sempre"], "points": [0, 10, 20, 30, 40]},
-    {"question": "7. Você acha que o tema é importante para a sociedade?",
-     "options": ["Não sei", "Pouco", "Às vezes", "Frequentemente", "Sempre"], "points": [0, 10, 20, 30, 40]},
-    {"question": "8. Você já participou de algum evento relacionado a esse tema?",
-     "options": ["Não sei", "Pouco", "Às vezes", "Frequentemente", "Sempre"], "points": [0, 10, 20, 30, 40]},
-    {"question": "9. Você sente que pode influenciar mudanças em relação a esse tema?",
-     "options": ["Não sei", "Pouco", "Às vezes", "Frequentemente", "Sempre"], "points": [0, 10, 20, 30, 40]},
-    {"question": "10. Você acredita que a conscientização sobre esse tema é suficiente?",
-     "options": ["Não sei", "Pouco", "Às vezes", "Frequentemente", "Sempre"], "points": [0, 10, 20, 30, 40]},
+    {"question": "1. Você sente que a escola oferece suporte adequado para ajudar professores a atender alunos com altas habilidades? ",
+     "options": ["Sim", "Não"], "points": [0, 40]},
+    {"question": "2. Você acredita que alunos com altas habilidades/superdotação enfrentam dificuldades específicas no ambiente escolar, como tédio ou isolamento social?",
+     "options": ["Sim", "Não"], "points": [0, 40]},
+    {"question": "3. Você tem acesso a algum especialista (como psicólogo ou orientador educacional) para ajudá-lo a lidar com as necessidades desses alunos?",
+     "options": ["Sim", "Não"], "points": [0, 40]},
+    {"question": "4. Existe algum programa ou projeto institucional voltado para identificar e atender alunos com altas habilidades na sua escola?",
+     "options": ["Sim", "Não"], "points": [0, 40]},
+    {"question": "5. Você já participou de cursos ou workshops sobre como trabalhar com alunos com altas habilidades/ superdotação?",
+     "options": ["Sim", "Não"], "points": [0, 40]},
+    {"question": "6. Você sente que falta tempo ou estrutura para planejar atividades diferenciadas para esses alunos?",
+     "options": ["Sim", "Não"], "points": [0, 40]},
+    {"question": "7. Você sente que a família dos alunos com altas habilidades participa ativamente do processo de ensino e apoio?",
+     "options": ["Sim", "Não"], "points": [0, 40]},
+    {"question": "8. Existe uma rede de troca de experiências entre os professores da sua escola para discutir o atendimento a alunos com altas habilidades?",
+     "options": ["Sim", "Não"], "points": [0, 40]}
 ]
 
 current_question = 0
