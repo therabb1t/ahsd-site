@@ -107,7 +107,7 @@ main p {
     background-color: #0056b3;
 }
 
-.profissionais {
+.profissionais, .apoio {
     display: flex;
     justify-content: center;
     gap: 20px;

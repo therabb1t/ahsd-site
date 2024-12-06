@@ -84,7 +84,7 @@ while running:
         if event.type == QUIT:
             running = False
         if event.type == KEYDOWN:
-            if event.key in [K_1, K_2, K_3, K_4]:  
+            if event.key in [K_1, K_2, K_3, K_4, K_5]:  
                 selected_option = event.key - K_1
                 score += questions[current_question]["points"][selected_option]  
                 current_question += 1
