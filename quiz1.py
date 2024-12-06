@@ -1,3 +1,4 @@
+from json.encoder import ESCAPE
 import webbrowser
 import pygame
 from pygame.locals import *
@@ -132,7 +133,7 @@ def draw_final_message(score):
     screen.blit(final_text, (WIDTH // 2 - final_text.get_width() // 2, HEIGHT // 3))
     draw_text_wrapped(screen, f"Parecer: {parecer}", font, BLUE, WIDTH // 2 - 350, HEIGHT // 2, 700)
     
-    if score > 300:  
+    if score >= 300:
         pesquisa_text1 = "Você gostaria de contribuir para uma pesquisa em 2025?"
         pesquisa_text2 = "Acesse o formulário: https://forms.gle/HG7PGPpYx3dB3qr87"
         draw_text_wrapped(screen, pesquisa_text1, font, BLACK, WIDTH // 2 - 350, HEIGHT // 2 + 100, 700)
@@ -163,11 +164,11 @@ while running:
                         if current_question >= len(questions):
                             state = "finished"
             elif state == "finished":
-                if event.key == K_ESCAPE: 
+                if event.key == ESCAPE: 
                     running = False
 
         # Detecta clique no link
-        if event.type == MOUSEBUTTONDOWN and state == "finished":
+        if event.type == MOUSEBUTTONDOWN and state == "finished": # type: ignore
             if link_rect and link_rect.collidepoint(event.pos):  
                 webbrowser.open("https://forms.gle/HG7PGPpYx3dB3qr87")  
 
