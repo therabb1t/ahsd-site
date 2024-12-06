@@ -1,3 +1,4 @@
+import webbrowser
 import pygame
 from pygame.locals import *
 pygame.init()
@@ -43,7 +44,7 @@ questions = [
         "points": [0, 10, 20, 30, 40]
     },
     {
-        "question": "7. Você encontra soluções rápido para problemas?",
+        "question": "7. Você se entedia com assuntos repetitivos em sala de aula?",
         "options": ["Não sei", "Pouco", "Às vezes", "Frequentemente", "Sempre"],
         "points": [0, 10, 20, 30, 40]
     },
@@ -105,19 +106,12 @@ def get_resultado(score):
     else:
         return "Você possui características excepcionais, típicas de altas habilidades/superdotação."
 
-def draw_final_message(score):
-    screen.fill(WHITE)
-    parecer = get_resultado(score)
 
-    final_text = font.render("Obrigada por responder!", True, BLACK)
-    screen.blit(final_text, (WIDTH // 2 - final_text.get_width() // 2, HEIGHT // 3))
-    draw_text_wrapped (screen, f"Parecer: {parecer}", font, BLUE, WIDTH // 2 - 350, HEIGHT // 2, 700)
-    
-    if score > 300: 
-        pesquisa_text1 = "Você gostaria de contribuir para uma pesquisa em 2025?"
-        pesquisa_text2 = "Acesse o formulário: [INSIRA O LINK AQUI]"
-        draw_text_wrapped(screen, pesquisa_text1, font, BLACK, WIDTH // 2 - 350, HEIGHT // 2 + 100, 700)
-        draw_text_wrapped(screen, pesquisa_text2, font, BLUE, WIDTH // 2 - 350, HEIGHT // 2 + 150, 700)
+current_question = 0
+score = 0
+quiz_finished = False
+running = True
+state = "intro"
 
 def draw_intro():
     screen.fill(WHITE)
@@ -130,11 +124,27 @@ def draw_intro():
     screen.blit(instructions_text, (WIDTH // 2 - instructions_text.get_width() // 2, HEIGHT // 2))
     screen.blit(keys_info_text, (WIDTH // 2 - keys_info_text.get_width() // 2, HEIGHT // 2 + 50))
 
-current_question = 0
-score = 0
-quiz_finished = False
-running = True
-state = "intro" 
+def draw_final_message(score):
+    screen.fill(WHITE)
+    parecer = get_resultado(score)
+    
+    final_text = font.render("Obrigada por Responder!", True, BLACK)
+    screen.blit(final_text, (WIDTH // 2 - final_text.get_width() // 2, HEIGHT // 3))
+    draw_text_wrapped(screen, f"Parecer: {parecer}", font, BLUE, WIDTH // 2 - 350, HEIGHT // 2, 700)
+    
+    if score > 300:  
+        pesquisa_text1 = "Você gostaria de contribuir para uma pesquisa em 2025?"
+        pesquisa_text2 = "Acesse o formulário: https://forms.gle/HG7PGPpYx3dB3qr87"
+        draw_text_wrapped(screen, pesquisa_text1, font, BLACK, WIDTH // 2 - 350, HEIGHT // 2 + 100, 700)
+        link_font = pygame.font.Font(None, 30)
+        link_surface = link_font.render(pesquisa_text2, True, BLUE)
+        link_rect = link_surface.get_rect(center=(WIDTH // 2, HEIGHT // 2 + 150))
+        screen.blit(link_surface, link_rect.topleft)
+
+        return link_rect 
+    return None 
+
+link_rect = None 
 
 while running:
     for event in pygame.event.get():
@@ -153,8 +163,13 @@ while running:
                         if current_question >= len(questions):
                             state = "finished"
             elif state == "finished":
-                if event.key == K_ESCAPE:
+                if event.key == K_ESCAPE: 
                     running = False
+
+        # Detecta clique no link
+        if event.type == MOUSEBUTTONDOWN and state == "finished":
+            if link_rect and link_rect.collidepoint(event.pos):  
+                webbrowser.open("https://forms.gle/HG7PGPpYx3dB3qr87")  
 
     if state == "intro":
         draw_intro()
@@ -162,7 +177,7 @@ while running:
         if current_question < len(questions):
             draw_question(questions[current_question])
     elif state == "finished":
-        draw_final_message(score)
+        link_rect = draw_final_message(score) 
 
     pygame.display.flip()
 
