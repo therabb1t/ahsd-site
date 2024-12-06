@@ -14,52 +14,52 @@ font = pygame.font.Font(None, 36)
 questions = [
     {
         "question": "1. Antes do seu primeiro ano de idade, você apresentou comportamentos precoces? (Primeiras palavras e primeiros passos.)",
-        "options": ["Não sei", "Nunca", "Às vezes", "Frequentemente", "Sempre"],
+        "options": ["Não sei", "Pouco", "Às vezes", "Frequentemente", "Sempre"],
         "points": [0, 10, 20, 30, 40]
     },
     {
         "question": "2. Você tem/tinha interesses aguçados, diferentes, diversos e avançados para pessoas da sua idade?",
-        "options": ["Não sei", "Nunca", "Às vezes", "Frequentemente", "Sempre"],
+        "options": ["Não sei", "Pouco", "Às vezes", "Frequentemente", "Sempre"],
         "points": [0, 10, 20, 30, 40]
     },
     {
         "question": "3. Você possui muitos hiperfocos? (interesses exacerbados por tempo indeterminado)",
-        "options": ["Não sei", "Nunca", "Às vezes", "Frequentemente", "Sempre"],
+        "options": ["Não sei", "Pouco", "Às vezes", "Frequentemente", "Sempre"],
         "points": [0, 10, 20, 30, 40]
     },
     {
         "question": "4. Você acha que percebe as emoções ou intenções das pessoas dentro de padrões com facilidade?",
-        "options": ["Não sei", "Nunca", "Às vezes", "Frequentemente", "Sempre"],
+        "options": ["Não sei", "Pouco", "Às vezes", "Frequentemente", "Sempre"],
         "points": [0, 10, 20, 30, 40]
     },
     {
         "question": "5. Sua velocidade de aprendizado surpreende você e as pessoas à sua volta?",
-        "options": ["Não sei", "Nunca", "Às vezes", "Frequentemente", "Sempre"],
+        "options": ["Não sei", "Pouco", "Às vezes", "Frequentemente", "Sempre"],
         "points": [0, 10, 20, 30, 40]
     },
     {
         "question": "6. Você acha que as pessoas às vezes não entendem seus interesses ou suas ideias?",
-        "options": ["Não sei", "Nunca", "Às vezes", "Frequentemente", "Sempre"],
+        "options": ["Não sei", "Pouco", "Às vezes", "Frequentemente", "Sempre"],
         "points": [0, 10, 20, 30, 40]
     },
     {
         "question": "7. Você encontra soluções rápido para problemas?",
-        "options": ["Não sei", "Nunca", "Às vezes", "Frequentemente", "Sempre"],
+        "options": ["Não sei", "Pouco", "Às vezes", "Frequentemente", "Sempre"],
         "points": [0, 10, 20, 30, 40]
     },
        {
         "question": "8. Você conhece mais palavras que seus colegas, ou palavras mais complexas que seus colegas não conhecem?",
-        "options": ["Não sei", "Nunca", "Às vezes", "Frequentemente", "Sempre"],
+        "options": ["Não sei", "Pouco", "Às vezes", "Frequentemente", "Sempre"],
         "points": [0, 10, 20, 30, 40]
     },
        {
         "question": "9. Você encontra soluções e adaptações rápido para problemas?",
-        "options": ["Não sei", "Nunca", "Às vezes", "Frequentemente", "Sempre"],
+        "options": ["Não sei", "Pouco", "Às vezes", "Frequentemente", "Sempre"],
         "points": [0, 10, 20, 30, 40]
     },
        {
         "question": "10. Você as vezes se percebe preocupado demais ou com suas emoções a flor da pele?",
-        "options": ["Não sei", "Nunca", "Às vezes", "Frequentemente", "Sempre"],
+        "options": ["Não sei", "Pouco", "Às vezes", "Frequentemente", "Sempre"],
         "points": [0, 10, 20, 30, 40]
     },
 ]
@@ -95,13 +95,13 @@ def draw_question(question_data):
 
 def get_resultado(score):
     if score <= 100:
-        return "Inconsistente, dentro da normalidade."
+        return "Inconsistente, seu desenvolvimento é dentro da normalidade."
     elif score <= 200:
-        return "Você possui inteligência média, com características regulares."
+        return "Você possui inteligência média, possivelmente o normal para grande parte da população. Tem a capacidade de desenvolver e se aprofundar em conhecimentos e talentos."
     elif score <= 300:
-        return "Você possui características de um desenvolvimento acima da média."
+        return "Você possui características de um desenvolvimento acima da média, com indícios para desenvolver Altas Habilidades. Recomendamos o acompanhamento neuropsicológico."
     elif score <= 400:
-        return "Você possui características significativamente acima da média."
+        return "Você possui características significativamente acima da média, típicas de altas habilidades/superdotação. Recomendamos o acompanhamento neuropsicológico."
     else:
         return "Você possui características excepcionais, típicas de altas habilidades/superdotação."
 
@@ -134,7 +134,7 @@ current_question = 0
 score = 0
 quiz_finished = False
 running = True
-state = "intro"  # Estados: 'intro', 'quiz', 'finished'
+state = "intro" 
 
 while running:
     for event in pygame.event.get():

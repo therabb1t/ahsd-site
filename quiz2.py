@@ -13,52 +13,52 @@ font = pygame.font.Font(None, 36)
 
 questions = [
     {
-        "question": "1. Antes do seu primeiro ano de idade, você apresentou comportamentos precoces? (Primeiras palavras e primeiros passos.)",
+        "question": "1. Antes do primeiro ano de idade, seu filho (a) apresentou comportamentos precoces? (Primeiras palavras e primeiros passos.)",
+        "options": ["Não sei", "Raramente", "Às vezes", "Frequentemente", "Sempre"],
+        "points": [0, 10, 20, 30, 40]
+    },
+    {
+        "question": "2. Seu filho (a) foi alfabetizado antes da idade recomendada?",
+        "options": ["Não","Sim"],
+        "points": [0, 30]
+    },
+    {
+        "question": "3. Seu filho (a) se interessa por vários assuntos em um curto intervalo de tempo?",
+        "options": ["Não sei", "Raramente", "Às vezes", "Frequentemente", "Sempre"],
+        "points": [0, 10, 20, 30, 40]
+    },
+    {
+        "question": "4. Seu filho (a) é mais observador que os colegas? Percebendo coisas que os demais não percebem?",
+        "options": ["Não sei", "Raramente", "Às vezes", "Frequentemente", "Sempre"],
+        "points": [0, 10, 20, 30, 40]
+    },
+    {
+        "question": "5. A velocidade de aprendizado dele(a) surpreende você e as pessoas à sua volta?",
         "options": ["Não sei", "Nunca", "Às vezes", "Frequentemente", "Sempre"],
         "points": [0, 10, 20, 30, 40]
     },
     {
-        "question": "2. Você tem/tinha interesses aguçados, diferentes, diversos e avançados para pessoas da sua idade?",
+        "question": "6. Seu filho (a) tem a memória destacada especialmente em assuntos de seu interesse?",
         "options": ["Não sei", "Nunca", "Às vezes", "Frequentemente", "Sempre"],
         "points": [0, 10, 20, 30, 40]
     },
     {
-        "question": "3. Você possui muitos hiperfocos? (interesses exacerbados por tempo indeterminado)",
-        "options": ["Não sei", "Nunca", "Às vezes", "Frequentemente", "Sempre"],
-        "points": [0, 10, 20, 30, 40]
-    },
-    {
-        "question": "4. Você acha que percebe as emoções ou intenções das pessoas dentro de padrões com facilidade?",
-        "options": ["Não sei", "Nunca", "Às vezes", "Frequentemente", "Sempre"],
-        "points": [0, 10, 20, 30, 40]
-    },
-    {
-        "question": "5. Sua velocidade de aprendizado surpreende você e as pessoas à sua volta?",
-        "options": ["Não sei", "Nunca", "Às vezes", "Frequentemente", "Sempre"],
-        "points": [0, 10, 20, 30, 40]
-    },
-    {
-        "question": "6. Você acha que as pessoas às vezes não entendem seus interesses ou suas ideias?",
-        "options": ["Não sei", "Nunca", "Às vezes", "Frequentemente", "Sempre"],
-        "points": [0, 10, 20, 30, 40]
-    },
-    {
-        "question": "7. Você encontra soluções rápido para problemas?",
+        "question": "7. Seu filho (a) possui/possuia rigidez sobre coisas que não lhe interessam? Atividades escolares por exemplo.",
         "options": ["Não sei", "Nunca", "Às vezes", "Frequentemente", "Sempre"],
         "points": [0, 10, 20, 30, 40]
     },
        {
-        "question": "8. Você conhece mais palavras que seus colegas, ou palavras mais complexas que seus colegas não conhecem?",
+        "question": "8. Seu filho (a) procura entender a origem das coisas e utilizar palavras complicadas?",
         "options": ["Não sei", "Nunca", "Às vezes", "Frequentemente", "Sempre"],
         "points": [0, 10, 20, 30, 40]
     },
        {
-        "question": "9. Você encontra soluções e adaptações rápido para problemas?",
-        "options": ["Não sei", "Nunca", "Às vezes", "Frequentemente", "Sempre"],
+        "question": "9. Seu filho (a) é intenso emocionalmente? Se preocupa demais com as coisas ao seu redor?",
+        "options": ["Não sei", "Raramente", "Às vezes", "Frequentemente", "Sempre"],
         "points": [0, 10, 20, 30, 40]
     },
        {
-        "question": "10. Você as vezes se percebe preocupado demais ou com suas emoções a flor da pele?",
+        "question": "Seu filho(a) relata casos de tédio em sala de aula?",
         "options": ["Não sei", "Nunca", "Às vezes", "Frequentemente", "Sempre"],
         "points": [0, 10, 20, 30, 40]
     },
@@ -95,36 +95,35 @@ def draw_question(question_data):
 
 def get_resultado(score):
     if score <= 100:
-        return "Inconsistente, dentro da normalidade."
+        return "Seu filho possui um desenvolvimento dentro da normalidade neurotípica."
     elif score <= 200:
-        return "Você possui inteligência média, com características regulares."
+        return "Seu filho possui inteligência média, possivelmente o normal para grande parte da população. Tem a capacidade de desenvolver e se aprofundar em conhecimentos e talentos."
     elif score <= 300:
-        return "Você possui características de um desenvolvimento acima da média."
+        return "Seu filho possui características de um desenvolvimento acima da média, com indícios para desenvolver Altas Habilidades. Recomendamos o acompanhamento neuropsicológico."
     elif score <= 400:
-        return "Você possui características significativamente acima da média."
+        return "Seu filho possui características significativamente acima da média, típicas de altas habilidades/superdotação. Recomendamos o acompanhamento neuropsicológico."
     else:
-        return "Você possui características excepcionais, típicas de altas habilidades/superdotação."
+        return "Seu filho possui características excepcionais, típicas de altas habilidades/superdotação."
 
 def draw_final_message(score):
     screen.fill(WHITE)
     parecer = get_resultado(score)
 
-    final_text = font.render("Quiz encerrado!", True, BLACK)
+    final_text = font.render("Obrigada por responder!", True, BLACK)
     screen.blit(final_text, (WIDTH // 2 - final_text.get_width() // 2, HEIGHT // 3))
-    parecer_text = font.render(f"Parecer: {parecer}", True, BLUE)
-    screen.blit(parecer_text, (WIDTH // 2 - parecer_text.get_width() // 2, HEIGHT // 2))
+    draw_text_wrapped (screen, f"Parecer: {parecer}", font, BLUE, WIDTH // 2 - 350, HEIGHT // 2, 700)
     
     if score > 300: 
         pesquisa_text1 = "Você gostaria de contribuir para uma pesquisa em 2025?"
         pesquisa_text2 = "Acesse o formulário: [INSIRA O LINK AQUI]"
-        draw_text_wrapped(screen, pesquisa_text1, font, BLACK, WIDTH // 2 - 350, HEIGHT // 2 + 50, 700)
-        draw_text_wrapped(screen, pesquisa_text2, font, BLUE, WIDTH // 2 - 350, HEIGHT // 2 + 50, 700)
+        draw_text_wrapped(screen, pesquisa_text1, font, BLACK, WIDTH // 2 - 350, HEIGHT // 2 + 100, 700)
+        draw_text_wrapped(screen, pesquisa_text2, font, BLUE, WIDTH // 2 - 350, HEIGHT // 2 + 150, 700)
 
 def draw_intro():
     screen.fill(WHITE)
     title_font = pygame.font.Font(None, 48)
-    title_text = title_font.render("Bem-vindo ao Quiz de Inteligência!", True, BLACK)
-    instructions_text = font.render("Pressione SPACE para começar.", True, BLUE)
+    title_text = title_font.render("Bem-vindo ao Quiz para Responsáveis!", True, BLACK)
+    instructions_text = font.render("Pressione ESPAÇO para começar.", True, BLUE)
     keys_info_text = font.render("Responda usando as teclas 1, 2, 3, 4 ou 5.", True, BLACK)
     
     screen.blit(title_text, (WIDTH // 2 - title_text.get_width() // 2, HEIGHT // 3))
@@ -135,7 +134,7 @@ current_question = 0
 score = 0
 quiz_finished = False
 running = True
-state = "intro"  # Estados: 'intro', 'quiz', 'finished'
+state = "intro" 
 
 while running:
     for event in pygame.event.get():
