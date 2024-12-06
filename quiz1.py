@@ -109,22 +109,21 @@ def draw_final_message(score):
     screen.fill(WHITE)
     parecer = get_resultado(score)
 
-    final_text = font.render("Quiz encerrado!", True, BLACK)
+    final_text = font.render("Obrigada por responder!", True, BLACK)
     screen.blit(final_text, (WIDTH // 2 - final_text.get_width() // 2, HEIGHT // 3))
-    parecer_text = font.render(f"Parecer: {parecer}", True, BLUE)
-    screen.blit(parecer_text, (WIDTH // 2 - parecer_text.get_width() // 2, HEIGHT // 2))
+    draw_text_wrapped (screen, f"Parecer: {parecer}", font, BLUE, WIDTH // 2 - 350, HEIGHT // 2, 700)
     
     if score > 300: 
         pesquisa_text1 = "Você gostaria de contribuir para uma pesquisa em 2025?"
         pesquisa_text2 = "Acesse o formulário: [INSIRA O LINK AQUI]"
-        draw_text_wrapped(screen, pesquisa_text1, font, BLACK, WIDTH // 2 - 350, HEIGHT // 2 + 50, 700)
-        draw_text_wrapped(screen, pesquisa_text2, font, BLUE, WIDTH // 2 - 350, HEIGHT // 2 + 100, 700)
+        draw_text_wrapped(screen, pesquisa_text1, font, BLACK, WIDTH // 2 - 350, HEIGHT // 2 + 100, 700)
+        draw_text_wrapped(screen, pesquisa_text2, font, BLUE, WIDTH // 2 - 350, HEIGHT // 2 + 150, 700)
 
 def draw_intro():
     screen.fill(WHITE)
     title_font = pygame.font.Font(None, 48)
-    title_text = title_font.render("Bem-vindo ao Quiz de Inteligência!", True, BLACK)
-    instructions_text = font.render("Pressione SPACE para começar.", True, BLUE)
+    title_text = title_font.render("Bem-vindo ao Quiz para Alunos (14-21)!", True, BLACK)
+    instructions_text = font.render("Pressione ESPAÇO para começar.", True, BLUE)
     keys_info_text = font.render("Responda usando as teclas 1, 2, 3, 4 ou 5.", True, BLACK)
     
     screen.blit(title_text, (WIDTH // 2 - title_text.get_width() // 2, HEIGHT // 3))
