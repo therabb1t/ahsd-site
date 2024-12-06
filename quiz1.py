@@ -99,7 +99,7 @@ def get_resultado(score):
     if score <= 100:
         return "Inconsistente, seu desenvolvimento é dentro da normalidade."
     elif score <= 200:
-        return "Você possui inteligência média, possivelmente o normal para grande parte da população. Tem a capacidade de desenvolver e se aprofundar em conhecimentos e talentos."
+        return "Você possui inteligência dentro da média, possivelmente o normal para grande parte da população. Tem a capacidade de desenvolver e se aprofundar em conhecimentos e talentos."
     elif score <= 300:
         return "Você possui características de um desenvolvimento acima da média, com indícios para desenvolver Altas Habilidades. Recomendamos o acompanhamento neuropsicológico."
     elif score <= 400:
