@@ -3,27 +3,30 @@
     padding: 0;
     box-sizing: border-box;
 }
-:root{
+
+:root {
     --preto: #000;
-    --branco: #fff; 
+    --branco: #fff;
     --amarelo: #F0FF47;
     --azul: #ADD7FF;
     --vermelho: #FF5147;
-    --verde: #A5AA68; 
+    --verde: #A5AA68;
     --roxo: #806563;
     --azulesc: #637280;
 }
-@font-face{
+
+@font-face {
     font-family: 'psilograph';
     src: url('./Psilograph-Black.ttf');
 }
-@font-face{
+
+@font-face {
     font-family: 'highway-gothic';
     src: url('./HWYGCOND.ttf');
 }
 
 body {
-    font-family: 'higway-gothic';
+    font-family: 'highway-gothic';
     line-height: 1.6;
 }
 
@@ -31,24 +34,24 @@ header {
     background-color: var(--azul);
     text-align: center;
     padding: 20px;
-    width: 100%; 
+    width: 100%;
     height: 700px;
 }
 
 header h1 {
-    font-size: 120px;
+    font-size: 220px;
     color: black;
     font-family: 'psilograph';
     text-align: center;
-    margin: 200px;
-    line-height: 100px;
+    margin: 130px;
+    line-height: 160px;
 }
-  
+
 #seta {
     height: 60px;
     width: 60px;
     align-items: center;
-  }
+}
 
 nav ul {
     list-style: none;
@@ -71,13 +74,13 @@ main {
     padding: 20px;
 }
 
-main h1{
+main h1 {
     text-align: center;
-    font-size: 3em;
+    font-size: 60px;
 }
 
 main h2 {
-    font-size: 1.5em;
+    font-size: 50px;
     text-align: center;
     margin-bottom: 10px;
     font-family: 'highway-gothic';
@@ -85,7 +88,8 @@ main h2 {
 
 main p {
     text-align: center;
-    margin-bottom: 20px;
+    font-size: 22px;
+    margin-bottom: 15px;
 }
 
 .botoes {
@@ -95,16 +99,19 @@ main p {
 
 .botoes button {
     margin: 5px;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
+    padding: 30px 60px;
+    background-color: var(--azul);
+    color: var(--roxo);
+    border: 2px solid var(--azul);
     border-radius: 5px;
     cursor: pointer;
+    font-family: 'highway-gothic';
+    font-size: 30px;
 }
 
 .botoes button:hover {
-    background-color: #0056b3;
+    background-color: var(--verde);
+    border-color: var(--verde);
 }
 
 .profissionais, .apoio {
@@ -116,20 +123,30 @@ main p {
 
 .circle {
     text-align: center;
-    width: 100px;
+    width: 150px;
+    border-radius: 50%;
+    padding: 10px;
+    transition: transform 0.3s;
+}
+
+.circle:hover {
+    transform: scale(1.1);
 }
 
 .circle img {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     object-fit: cover;
     margin: 20px;
 }
 
 .circle p {
-    margin-top: 10px;
-    font-size: 0.9em;
+    margin-left: 58px;
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--preto);
+    font-family: 'highway-gothic';
 }
 
 footer {
@@ -143,15 +160,17 @@ footer p {
     margin-bottom: 10px;
 }
 
-footer button {
+footer #button {
     padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
+    background-color: var(--azul);
+    color: var(--verde);
+    border: 2px solid var(--azul);
     border-radius: 5px;
     cursor: pointer;
+    font-family: 'highway-gothic', serif;
 }
 
 footer button:hover {
-    background-color: #0056b3;
+    background-color: var(--verde);
+    border-color: var(--verde);
 }

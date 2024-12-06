@@ -66,7 +66,7 @@ questions = [
     },
 ]
 
-current_question = 0
+current_question: int = 0
 score = 0
 running = True
 
