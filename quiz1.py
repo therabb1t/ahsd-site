@@ -11,42 +11,44 @@ BLACK = (0, 0, 0)
 BLUE = (0, 102, 204)
 font = pygame.font.Font(None, 36)
 
-questions =  [
+questions = [
     {
         "question": "Antes do seu primeiro ano de idade, você apresentou comportamentos precoces? (Primeiras palavras e primeiros passos.)",
-        "options": ["Não sei", "Nunca", "Às vezes", "Frequentemente", "Sempre"]
-        "points": [0, 10, 20, 30, 40] },
-    {
-            "question": "Você tem/tinha interesses aguçados, diferentes, diversos e avançados para pessoas da sua idade?",
-        "options": ["Não sei", "Nunca", "Às vezes", "Frequentemente", "Sempre"]
+        "options": ["Não sei", "Nunca", "Às vezes", "Frequentemente", "Sempre"],
         "points": [0, 10, 20, 30, 40]
     },
     {
-        "question": "Você possui muitos hiperfocos? (interesses exarcebados por tempo indeterminado)",
-        "options": ["Não sei", "Nunca", "Às vezes", "Frequentemente", "Sempre"]
+        "question": "Você tem/tinha interesses aguçados, diferentes, diversos e avançados para pessoas da sua idade?",
+        "options": ["Não sei", "Nunca", "Às vezes", "Frequentemente", "Sempre"],
+        "points": [0, 10, 20, 30, 40]
+    },
+    {
+        "question": "Você possui muitos hiperfocos? (interesses exacerbados por tempo indeterminado)",
+        "options": ["Não sei", "Nunca", "Às vezes", "Frequentemente", "Sempre"],
         "points": [0, 10, 20, 30, 40]
     },
     {
         "question": "Você acha que percebe as emoções ou intenções das pessoas dentro de padrões com facilidade?",
-       "options": ["Não sei", "Nunca", "Às vezes", "Frequentemente", "Sempre"]
+        "options": ["Não sei", "Nunca", "Às vezes", "Frequentemente", "Sempre"],
         "points": [0, 10, 20, 30, 40]
     },
     {
-        "question": "Sua velocidade de aprendizado surpreeende você e as pessoas em sua volta?",
-    "options": ["Não sei", "Nunca", "Às vezes", "Frequentemente", "Sempre"]
+        "question": "Sua velocidade de aprendizado surpreende você e as pessoas à sua volta?",
+        "options": ["Não sei", "Nunca", "Às vezes", "Frequentemente", "Sempre"],
         "points": [0, 10, 20, 30, 40]
     },
     {
         "question": "Você acha que as pessoas às vezes não entendem seus interesses ou suas ideias?",
-       "options": ["Não sei", "Nunca", "Às vezes", "Frequentemente", "Sempre"]
+        "options": ["Não sei", "Nunca", "Às vezes", "Frequentemente", "Sempre"],
         "points": [0, 10, 20, 30, 40]
     },
-     {
+    {
         "question": "D",
-       "options": ["Não sei", "Nunca", "Às vezes", "Frequentemente", "Sempre"]
+        "options": ["Não sei", "Nunca", "Às vezes", "Frequentemente", "Sempre"],
         "points": [0, 10, 20, 30, 40]
-    }    
+    }
 ]
+
 
 current_question = 0
 score = 0
